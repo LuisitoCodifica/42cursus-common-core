@@ -1,0 +1,43 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/04/10 14:46:03 by lolit-go          #+#    #+#              #
+#    Updated: 2024/04/10 17:49:50 by lolit-go         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = libft.a
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra
+
+SRCS =  ft_isalpha.c \
+		ft_isdigit.c \
+		ft_isalnum.c \
+		ft_isascii.c \
+		ft_isprint.c \
+		ft_tolower.c \
+		ft_toupper.c
+
+OBJS = ${SRCS:.c=.o}
+
+all: ${NAME}
+
+.c.o:
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+
+$(NAME): $(OBJS)
+	ar -rcs $(NAME) $(OBJS)
+
+clean:
+	rm -f ${OBJS}
+
+fclean: clean
+	rm -f ${NAME}
+
+re: fclean all
+
+.PHONY: all clean fclean re
