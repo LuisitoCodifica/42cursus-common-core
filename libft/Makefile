@@ -6,7 +6,7 @@
 #    By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 14:46:03 by lolit-go          #+#    #+#              #
-#    Updated: 2024/04/10 17:49:50 by lolit-go         ###   ########.fr        #
+#    Updated: 2024/04/11 12:28:02 by lolit-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,11 @@ SRCS =  ft_isalpha.c \
 		ft_isascii.c \
 		ft_isprint.c \
 		ft_tolower.c \
-		ft_toupper.c
+		ft_toupper.c \
+		ft_strlen.c \
+		ft_strncmp.c \
+		ft_strchr.c \
+		ft_strrchr.c
 
 OBJS = ${SRCS:.c=.o}
 

@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 17:40:08 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/04/11 12:22:05 by lolit-go         ###   ########.fr       */
+/*   Created: 2024/04/11 11:33:34 by lolit-go          #+#    #+#             */
+/*   Updated: 2024/04/11 11:50:10 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int c);
+int	ft_strlen(const char *s)
+{
+	int	i;
 
-int		ft_isdigit(int c);
-
-int		ft_isalnum(int c);
-
-int		ft_isascii(int c);
-
-int		ft_isprint(int c);
-
-int		ft_tolower(int c);
-
-int		ft_toupper(int c);
-
-int		ft_strlen(const char *s);
-
-int		ft_strncmp(const char *s1, const char *s2, int n);
-
-char	*ft_strchr(const char *s, int c);
-
-char	*ft_strrchr(const char *s, int c);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
