@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 17:40:08 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/04/12 10:49:33 by lolit-go         ###   ########.fr       */
+/*   Created: 2024/04/11 13:40:01 by lolit-go          #+#    #+#             */
+/*   Updated: 2024/04/11 14:23:04 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int c);
+#include <stdio.h>
+#include <string.h>
 
-int		ft_isdigit(int c);
+int	ft_strlcpy(char *dst, const char *src, int size)
+{
+	int	i;
 
-int		ft_isalnum(int c);
-
-int		ft_isascii(int c);
-
-int		ft_isprint(int c);
-
-int		ft_tolower(int c);
-
-int		ft_toupper(int c);
-
-int		ft_strlen(const char *s);
-
-int		ft_strncmp(const char *s1, const char *s2, int n);
-
-int		ft_strlcpy(char *dst, const char *src, int size);
-
-char	*ft_strchr(const char *s, int c);
-
-char	*ft_strrchr(const char *s, int c);
+	i = 0;
+	while (src[i] && i < size - 1)
+	{
+		if (size == 0)
+			break ;
+		dst[i] = src[i];
+		i++;
+	}
+	if (i < size)
+		dst[i] = '\0';
+	i = 0;
+	while (src[i])
+		i++;
+	return (i);
+}
