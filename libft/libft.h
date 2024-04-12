@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:40:08 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/04/12 11:30:41 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/04/12 12:50:25 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,9 @@ int		ft_strlcat(char *dst, const char *src, int size);
 char	*ft_strchr(const char *s, int c);
 
 char	*ft_strrchr(const char *s, int c);
+
+void	*ft_bzero(void *s, int n);
+
+void	*ft_memset(void *s, int c, int n);
+
+void	*ft_memchr(void *s, int c, int n);
