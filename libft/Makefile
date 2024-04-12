@@ -6,7 +6,7 @@
 #    By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 14:46:03 by lolit-go          #+#    #+#              #
-#    Updated: 2024/04/12 10:49:39 by lolit-go         ###   ########.fr        #
+#    Updated: 2024/04/12 11:30:53 by lolit-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS =  ft_isalpha.c \
 		ft_toupper.c \
 		ft_strlen.c \
 		ft_strncmp.c \
+		ft_strlcat.c \
 		ft_strlcpy.c \
 		ft_strchr.c \
 		ft_strrchr.c

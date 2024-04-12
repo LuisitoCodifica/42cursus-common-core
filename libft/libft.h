@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:40:08 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/04/12 10:49:33 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/04/12 11:30:41 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int		ft_strlen(const char *s);
 int		ft_strncmp(const char *s1, const char *s2, int n);
 
 int		ft_strlcpy(char *dst, const char *src, int size);
+
+int		ft_strlcat(char *dst, const char *src, int size);
 
 char	*ft_strchr(const char *s, int c);
 
