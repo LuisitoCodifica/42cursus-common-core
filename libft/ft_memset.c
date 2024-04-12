@@ -6,18 +6,18 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 11:55:06 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/04/12 12:40:48 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/04/12 13:03:32 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	*ft_memset(void *s, int c, int n)
 {
-	int		i;
-	char	*ptr;
+	int				i;
+	unsigned char	*ptr;
 
-	ptr = s;
+	ptr = (unsigned char *) s;
 	i = 0;
 	while (i < n)
-		ptr[i++] = c;
+		ptr[i++] = (unsigned char) c;
 	return (s);
 }

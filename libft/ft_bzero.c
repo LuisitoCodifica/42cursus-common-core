@@ -6,16 +6,16 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 12:43:40 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/04/12 12:44:11 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/04/12 13:02:58 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	*ft_bzero(void *s, int n)
 {
-	int		i;
-	char	*ptr;
+	int				i;
+	unsigned char	*ptr;
 
-	ptr = s;
+	ptr = (unsigned char *) s;
 	i = 0;
 	while (i < n)
 		ptr[i++] = 0;
