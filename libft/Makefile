@@ -6,7 +6,7 @@
 #    By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 14:46:03 by lolit-go          #+#    #+#              #
-#    Updated: 2024/04/12 16:27:48 by lolit-go         ###   ########.fr        #
+#    Updated: 2024/04/13 18:18:10 by lolit-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS =  ft_isalpha.c \
 		ft_memcpy.c \
 		ft_memmove.c \
 		ft_memcmp.c
+# ft_atoi.c
 
 OBJS = ${SRCS:.c=.o}
 
