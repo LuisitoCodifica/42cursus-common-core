@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:40:08 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/04/12 12:50:25 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/04/12 16:27:04 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,9 @@ void	*ft_bzero(void *s, int n);
 void	*ft_memset(void *s, int c, int n);
 
 void	*ft_memchr(void *s, int c, int n);
+
+void	*ft_memcpy(void *dst, const void *src, int n);
+
+void	*ft_memmove(void *dst, const void *src, int n);
+
+int		ft_memcmp(const void *s1, const void *s2, int n);
