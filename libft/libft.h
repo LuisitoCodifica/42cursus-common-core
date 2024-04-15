@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:40:08 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/04/13 18:17:58 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/04/15 11:57:35 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,4 @@ void	*ft_memmove(void *dst, const void *src, int n);
 
 int		ft_memcmp(const void *s1, const void *s2, int n);
 
-// int		ft_atoi(const char *nptr);
+int		ft_atoi(const char *nptr);
