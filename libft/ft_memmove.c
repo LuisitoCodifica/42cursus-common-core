@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 16:28:21 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/04/13 13:11:22 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/05/07 02:41:48 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void *dst, const void *src, int n)
 
 	dst_ptr = (unsigned char *) dst;
 	src_ptr = (unsigned char *) src;
+	if (!dst_ptr && !src_ptr)
+		return (0);
 	if (!n || *dst_ptr == *src_ptr)
 		return (dst);
 	i = 0;
