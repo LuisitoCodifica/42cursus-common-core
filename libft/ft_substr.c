@@ -6,14 +6,14 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 05:15:11 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/05/08 08:37:44 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/05/08 18:29:24 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	char	*str;
 	size_t	i;
