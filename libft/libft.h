@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:40:08 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/05/08 18:31:05 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/05/08 20:43:35 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,3 +59,5 @@ char	*ft_strdup(const char *s);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 
 char	*ft_strjoin(const char *s1, const char *s2);
+
+char	*ft_strtrim(const char *s1, const char *set);
