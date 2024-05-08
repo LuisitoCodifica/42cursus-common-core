@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:40:08 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/05/06 17:56:15 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/05/08 03:21:11 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,3 +51,5 @@ int		ft_memcmp(const void *s1, const void *s2, int n);
 int		ft_atoi(const char *nptr);
 
 void	*ft_calloc(int nmemb, int size);
+
+char	*ft_strdup(const char *s);
