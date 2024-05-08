@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:40:08 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/05/08 18:29:51 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/05/08 18:31:05 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,3 +57,5 @@ void	*ft_calloc(int nmemb, int size);
 char	*ft_strdup(const char *s);
 
 char	*ft_substr(const char *s, unsigned int start, size_t len);
+
+char	*ft_strjoin(const char *s1, const char *s2);
