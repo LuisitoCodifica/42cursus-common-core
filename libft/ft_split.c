@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 20:38:40 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/05/14 00:53:19 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:27:06 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,22 @@
 #include <stdio.h>
 #include "libft.h"
 
-void	ft_mem(char ***array, int num)
+void	ft_mem(char ***array, char *str, char *sizes, int len)
 {
 	int i = 0;
 	int j = 0;
-	*array = (char **) malloc(num * sizeof(char *));
-	while (i < num) {
-		(*array)[i] = (char *) malloc(num * sizeof(char));
-		while (j < num) {
-			(*array)[i][j] = (i + j + 'a');
-			printf("%c ", array[i][j]);
-			j++;
-		}
-		printf("\n");
-		j = 0;
+	*array = (char **) malloc(len * sizeof(char *));
+	while (i < len) {
+		(*array)[i] = (char *) malloc((sizes[i] + 1) * sizeof(char));
+		ft_strlcpy((*array)[i], (str + j), (sizes[i] - '0' + 1));
+		// while (j < len) {
+		// 	(*array)[i][j] = (i + j + 'a');
+		// 	printf("%c ", array[i][j]);
+		// 	j++;
+		// }
+		// printf("\n");
+		// j = 0;
+		j = j + (sizes[i] - '0');
 		i++;
 	}
 }
@@ -35,8 +37,10 @@ void	ft_mem(char ***array, int num)
 static void	ft_parse_array(char **str, char **sizes, const char *s, char c)
 {
 	int	i;
+	int	j;
 	int	substr_len;
 
+	j = 0;
 	i = 0;
 	while (s[i])
 	{
@@ -46,10 +50,12 @@ static void	ft_parse_array(char **str, char **sizes, const char *s, char c)
 			{
 				substr_len = (ft_strchr((s + i), c) - s);
 
-				printf("%2d: %2d (%s)\n", i, (substr_len - i),
-				ft_substr(s, i, (substr_len - i)));
+				printf("%2d: %2d (%s)\n", i, (substr_len - i), ft_substr(s, i, (substr_len - i)));
 				*str = ft_strjoin(*str, ft_substr(s, i, (substr_len - i)));
-				// *sizes = ft_strjoin(*str, (char *) (substr_len - i + '0'));
+				// *sizes = ft_strjoin(*sizes, (char *) (substr_len - i + '0'));
+				*sizes = ft_strjoin(*sizes, "0");
+				(*sizes)[j++] += (substr_len - i);
+				// j++;
 				
 				i = substr_len;
 				continue ;
@@ -63,6 +69,8 @@ static void	ft_parse_array(char **str, char **sizes, const char *s, char c)
 		printf("%2d: %2d (%s)\n", i, ft_strlen(s + i), (s + i));
 		*str = ft_strjoin(*str, ft_substr(s, i, ft_strlen(s + i)));
 		// *sizes = ft_strjoin(*str, (char *) (ft_strlen(s + i)));
+		*sizes = ft_strjoin(*sizes, "0");
+		(*sizes)[j] += (ft_strlen(s + i));
 	}
 }
 
@@ -76,21 +84,33 @@ char	**ft_split(const char *s, char c)
 	sizes = ft_strdup("");
 	ft_parse_array(&str, &sizes, s, c);
 	printf("(%s)\n", str);
-	// printf("(%s)\n", sizes);
+	printf("(%s)\n", sizes);
 	
 	array = (char **) malloc(ft_strlen(sizes) * sizeof(char *));
 	if (!array)
 		return (0);
 
-	// int num = 5;
-	// ft_mem(&array, num);
+	int len = ft_strlen(sizes);
+	ft_mem(&array, str, sizes, len);
 
 	return (array);
 }
 
 int main() {
 	char *str = "lorem ipsum dolor sit amet";
-	ft_split(str, ' ');
+	char **array = ft_split(str, ' ');
+
+	int i = 0;
+		printf("\n");
+		printf("\"%s\"\n", array[i++]);
+		printf("\"%s\"\n", array[i++]);
+		printf("\"%s\"\n", array[i++]);
+		printf("\"%s\"\n", array[i++]);
+		printf("\"%s\"\n", array[i]);
+	// while (array[i]) {
+	// 	printf("(%s)\n", array[i]);
+	// 	i++;
+	// }
 
 	return 0;
 }
