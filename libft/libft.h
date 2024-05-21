@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:40:08 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/05/14 17:36:26 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/05/21 01:10:38 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,3 +65,5 @@ char	*ft_strtrim(const char *s1, const char *set);
 char	*ft_strnstr(const char *big, const char *little, int len);
 
 char	**ft_split(const char *s, char c);
+
+char	*ft_itoa(int n);
