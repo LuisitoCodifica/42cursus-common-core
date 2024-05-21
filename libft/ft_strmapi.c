@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 04:59:22 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/05/21 05:09:22 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/05/21 05:21:21 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	char	*str;
-	int		i;
+	char			*str;
+	unsigned int	i;
 
 	str = (char *) malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!str)
