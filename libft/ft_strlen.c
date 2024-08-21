@@ -6,9 +6,11 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 11:33:34 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/04/11 11:50:10 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/08/21 17:48:45 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_strlen(const char *s)
 {

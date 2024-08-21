@@ -6,26 +6,29 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 05:15:11 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/05/08 18:29:24 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/08/21 09:43:32 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_substr(const char *s, unsigned int start, size_t len)
+char	*ft_substr(const char *s, size_t start, size_t len)
 {
 	char	*str;
 	size_t	i;
 
-	if (!s)
-		return (NULL);
 	i = ft_strlen(s);
-	if (len > i)
-		len = i;
 	if (start > i)
+	{
+		start = 0;
 		len = 0;
-	str = malloc(len + 1);
+	}
+	else if (len > i)
+		len = i;
+	if ((start + len) > i)
+		str = malloc(i - start + 1);
+	else
+		str = malloc(len + 1);
 	if (!str)
 		return (NULL);
 	i = 0;

@@ -6,11 +6,15 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:40:08 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/05/21 05:43:20 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/08/21 17:48:42 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#ifndef LIBFT_H
+# define LIBFT_H
+
+# include <stdlib.h>
+# include <unistd.h>
 
 int		ft_isalpha(int c);
 
@@ -56,7 +60,7 @@ void	*ft_calloc(int nmemb, int size);
 
 char	*ft_strdup(const char *s);
 
-char	*ft_substr(const char *s, unsigned int start, size_t len);
+char	*ft_substr(const char *s, size_t start, size_t len);
 
 char	*ft_strjoin(const char *s1, const char *s2);
 
@@ -79,3 +83,5 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 
 void	ft_putnbr_fd(int n, int fd);
+
+#endif

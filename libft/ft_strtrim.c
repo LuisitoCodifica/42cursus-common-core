@@ -6,11 +6,10 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 21:28:35 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/05/08 22:41:49 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/08/21 17:51:19 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 static int	ft_charcmp(int c, const char *set)
@@ -29,7 +28,7 @@ static char	*ft_setstr(const char *s1, int start, int len)
 		return (ft_strdup(""));
 	str = (char *) malloc(len + 1);
 	if (!str)
-		return (0);
+		return (NULL);
 	ft_strlcpy(str, (s1 + start), (len + 1));
 	return (str);
 }

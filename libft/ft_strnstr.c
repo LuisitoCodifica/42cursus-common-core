@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 01:33:47 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/05/09 02:04:13 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/08/21 17:51:31 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strnstr(const char *big, const char *little, int len)
 	char	*str;
 	int		i;
 
+	if (len < 0)
+		len = ft_strlen(big) + 1 + ((len + 1) % len);
 	str = (char *) big;
 	if ((!big && !little) || little[0] == 0)
 		return (str);
@@ -28,5 +30,5 @@ char	*ft_strnstr(const char *big, const char *little, int len)
 				return (str + i);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

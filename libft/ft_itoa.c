@@ -6,12 +6,10 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 01:11:29 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/05/21 02:44:36 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/08/21 17:52:52 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
 
 static int	ft_n_len(int n)
@@ -27,13 +25,13 @@ static int	ft_n_len(int n)
 	return (len);
 }
 
-char	*ft_parse(int n, int n_len)
+static char	*ft_parse(int n, int n_len)
 {
 	char	*n_str;
 
 	n_str = (char *) malloc((n_len + 1) * sizeof(char));
 	if (!n_str)
-		return (0);
+		return (NULL);
 	n_str[n_len--] = 0;
 	while (n_len >= 0)
 	{
@@ -43,7 +41,7 @@ char	*ft_parse(int n, int n_len)
 	return (n_str);
 }
 
-char	*ft_parse_neg(int n, int n_len)
+static char	*ft_parse_neg(int n, int n_len)
 {
 	char	*n_str;
 
@@ -51,7 +49,7 @@ char	*ft_parse_neg(int n, int n_len)
 		return (ft_strdup("-2147483648"));
 	n_str = (char *) malloc((n_len + 2) * sizeof(char));
 	if (!n_str)
-		return (0);
+		return (NULL);
 	n = -n;
 	n_len = n_len + 1;
 	n_str[n_len--] = 0;

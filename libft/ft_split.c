@@ -6,12 +6,10 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 02:47:37 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/05/27 19:45:07 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/08/21 17:46:25 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
 
 static int	ft_count_words(const char *s, char c)

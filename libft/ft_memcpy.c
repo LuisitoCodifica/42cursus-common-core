@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	*ft_memcpy(void *dst, const void *src, int n)
 {
 	unsigned char	*dst_ptr;

@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 10:25:08 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/05/06 21:51:29 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/08/21 17:49:35 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ char	*ft_strchr(const char *s, int c)
 			return (s1 + i);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
