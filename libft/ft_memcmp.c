@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 15:57:03 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/08/21 17:50:08 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/08/22 09:36:23 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_memcmp(const void *s1, const void *s2, int n)
 	unsigned char	*ptr2;
 
 	if (n == 0)
-		return (NULL);
+		return (0);
 	ptr1 = (unsigned char *) s1;
 	ptr2 = (unsigned char *) s2;
 	i = 0;
@@ -29,5 +29,5 @@ int	ft_memcmp(const void *s1, const void *s2, int n)
 			return (ptr1[i] - ptr2[i]);
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
