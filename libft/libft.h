@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:40:08 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/08/22 15:16:18 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/08/22 15:22:43 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ typedef struct s_list
 t_list	*ft_lstnew(void *content);
 
 void	ft_lstadd_front(t_list **lst, t_list *new);
+
+void	ft_lstadd_back(t_list **lst, t_list *new);
 
 int		ft_lstsize(t_list *lst);
 
