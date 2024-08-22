@@ -6,7 +6,7 @@
 #    By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 14:46:03 by lolit-go          #+#    #+#              #
-#    Updated: 2024/08/22 14:48:52 by lolit-go         ###   ########.fr        #
+#    Updated: 2024/08/22 15:01:16 by lolit-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,8 @@ SRCS =  ft_isalpha.c \
 
 OBJS = ${SRCS:.c=.o}
 
-BONUS_SRCS = ft_lstnew_bonus.c
+BONUS_SRCS = 	ft_lstnew_bonus.c \
+				ft_lstadd_front_bonus.c
 
 BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
