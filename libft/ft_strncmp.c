@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 12:08:09 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/08/21 17:49:13 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/08/22 09:35:48 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_strncmp(const char *s1, const char *s2, int n)
 	int	i;
 
 	if (n == 0)
-		return (NULL);
+		return (0);
 	if (n < 0)
 		n = ft_strlen(s1) + 1 + ((n + 1) % n);
 	i = 0;
@@ -27,5 +27,5 @@ int	ft_strncmp(const char *s1, const char *s2, int n)
 			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
