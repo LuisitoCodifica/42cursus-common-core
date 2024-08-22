@@ -6,13 +6,13 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 02:47:37 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/08/21 17:46:25 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/08/22 10:00:00 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count_words(const char *s, char c)
+static int	count_words(const char *s, char c)
 {
 	int		words;
 	int		i;
@@ -33,67 +33,71 @@ static int	ft_count_words(const char *s, char c)
 	return (words);
 }
 
-static void	ft_parse_array(const char *s, char c, int **strs_pos, int size)
+static void	push(char *str_arr, const char *s, int len)
 {
-	int		i;
-	int		j;
+	int	i;
 
-	*strs_pos = (int *) malloc((size * 2) * sizeof(int));
-	if (*strs_pos)
+	i = 0;
+	while (i < len)
 	{
-		j = 0;
-		i = 0;
-		while (s[i])
-		{
-			if (s[i] != c)
-			{
-				(*strs_pos)[j] = i;
-				while (s[i] && s[i] != c)
-					i++;
-				(*strs_pos)[j + size] = (i - (*strs_pos)[j]);
-				j++;
-			}
-			else
-				i++;
-		}
+		str_arr[i] = s[i];
+		i++;
 	}
+	str_arr[i] = 0;
 }
 
-static char	**ft_empty_array(void)
+static void	free_memory(char **str_arr, int count)
 {
-	char	**array;
+	int	i;
 
-	array = (char **) malloc(sizeof(char *));
-	if (!array)
-		return (NULL);
-	array[0] = NULL;
-	return (array);
+	i = 0;
+	while (i < count)
+	{
+		free(str_arr[i]);
+		i++;
+	}
+	free(str_arr);
+}
+
+static int	parse(char **str_arr, const char *s, char c, int j)
+{
+	int	s_start;
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			s_start = i;
+			while (s[i] && s[i] != c)
+				i++;
+			str_arr[j] = (char *) malloc(((i - s_start) + 1) * sizeof(char));
+			if (!str_arr[j])
+			{
+				free_memory(str_arr, j);
+				return (0);
+			}
+			push(str_arr[j], (s + s_start), (i - s_start));
+			j++;
+		}
+		else
+			i++;
+	}
+	str_arr[j] = 0;
+	return (1);
 }
 
 char	**ft_split(const char *s, char c)
 {
-	char	**array;
-	int		*strs_pos;
-	int		size;
-	int		i;
+	char	**str_arr;
+	int		words;
 
-	size = ft_count_words(s, c);
-	if (size == 0)
-		return (ft_empty_array());
-	ft_parse_array(s, c, &strs_pos, size);
-	if (!strs_pos)
+	words = count_words(s, c);
+	str_arr = (char **) malloc((words + 1) * sizeof(char *));
+	if (!str_arr)
 		return (NULL);
-	array = (char **) malloc((size + 1) * sizeof(char *));
-	if (!array)
+	if (!parse(str_arr, s, c, 0))
 		return (NULL);
-	i = 0;
-	while (i < size)
-	{
-		array[i] = (char *) malloc((strs_pos[i + size] + 1) * sizeof(char));
-		ft_strlcpy(array[i], (s + strs_pos[i]), (strs_pos[i + size] + 1));
-		i++;
-	}
-	array[i] = 0;
-	free(strs_pos);
-	return (array);
+	return (str_arr);
 }
