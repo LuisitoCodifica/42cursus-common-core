@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:40:08 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/08/22 17:20:51 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:33:35 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,7 @@ int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
+
+void	ft_lstclear(t_list **lst, void (*del)(void *));
 
 #endif
