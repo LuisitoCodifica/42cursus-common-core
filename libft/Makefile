@@ -6,7 +6,7 @@
 #    By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 14:46:03 by lolit-go          #+#    #+#              #
-#    Updated: 2024/05/21 05:43:51 by lolit-go         ###   ########.fr        #
+#    Updated: 2024/08/22 14:48:52 by lolit-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,20 +51,28 @@ SRCS =  ft_isalpha.c \
 
 OBJS = ${SRCS:.c=.o}
 
+BONUS_SRCS = ft_lstnew_bonus.c
+
+BONUS_OBJS = ${BONUS_SRCS:.c=.o}
+
+
 all: ${NAME}
 
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME): $(OBJS)
-	ar -rcs $(NAME) $(OBJS)
+	/usr/bin/ar -rcs $(NAME) $(OBJS)
+
+bonus: $(OBJS) $(BONUS_OBJS)
+	/usr/bin/ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 clean:
-	rm -f ${OBJS}
+	/usr/bin/rm -f ${OBJS}
 
 fclean: clean
-	rm -f ${NAME}
+	/usr/bin/rm -f ${NAME}
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: bonus all clean fclean re
