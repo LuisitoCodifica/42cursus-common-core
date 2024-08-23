@@ -2,7 +2,7 @@
 
 ## libft
 
-Run the following command to download libft only:
+Run the following command to download `libft` only:
 
 ```bash
 bash -c "if [[ ! -e libft.zip ]]; then \
