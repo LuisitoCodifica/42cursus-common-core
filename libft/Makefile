@@ -6,7 +6,7 @@
 #    By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 14:46:03 by lolit-go          #+#    #+#              #
-#    Updated: 2024/08/22 17:48:47 by lolit-go         ###   ########.fr        #
+#    Updated: 2024/08/23 06:19:24 by lolit-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,8 @@ BONUS_SRCS = 	ft_lstnew_bonus.c \
 				ft_lstlast_bonus.c \
 				ft_lstdelone_bonus.c \
 				ft_lstclear_bonus.c \
-				ft_lstiter_bonus.c
+				ft_lstiter_bonus.c \
+				ft_lstmap_bonus.c
 
 BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
