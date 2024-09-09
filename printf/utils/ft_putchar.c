@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/07 15:52:49 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/09/09 17:46:26 by lolit-go         ###   ########.fr       */
+/*   Created: 2024/09/09 17:39:10 by lolit-go          #+#    #+#             */
+/*   Updated: 2024/09/09 17:47:07 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include "../ft_printf.h"
 
-int		ft_putchar(int c);
-
-int		ft_putstr(const char *s);
-
-char	*ft_itoa(int n);
-
-int		ft_printf(const char *s, ...);
+int	ft_putchar(int c)
+{
+	write(0, &c, 1);
+	return (1);
+}
