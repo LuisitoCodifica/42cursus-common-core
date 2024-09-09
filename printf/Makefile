@@ -6,7 +6,7 @@
 #    By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/07 15:54:49 by lolit-go          #+#    #+#              #
-#    Updated: 2024/09/09 18:14:04 by lolit-go         ###   ########.fr        #
+#    Updated: 2024/09/09 18:17:22 by lolit-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,4 +44,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all .c.o bonus clean fclean re
+.PHONY: all clean fclean re
