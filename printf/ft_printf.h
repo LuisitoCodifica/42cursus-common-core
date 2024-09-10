@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:52:49 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/09/09 17:46:26 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/09/10 16:28:39 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int		ft_strlen(const char *s);
+
+int		ft_strlcpy(char *dst, const char *src, int size);
+
+char	*ft_strdup(const char *s);
+
 int		ft_putchar(int c);
 
 int		ft_putstr(const char *s);
 
-char	*ft_itoa(int n);
+char	*ft_itoa_base(int n, int base, int upper);
 
 int		ft_printf(const char *s, ...);

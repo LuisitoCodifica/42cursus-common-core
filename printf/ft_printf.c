@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:53:22 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/09/09 17:42:18 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/09/10 16:43:08 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int	ft_printf(const char *s, ...)
 
 	num_chars = 0;
 	va_start(params, s);
-	// write(0, "\"", 1);
+
+		write(0, "\"", 1);
+
 	while (*s)
 	{
 		if (*s == '%')
@@ -30,11 +32,15 @@ int	ft_printf(const char *s, ...)
 			else if (*s == 's')
 				num_chars += ft_putstr(va_arg(params, char *));
 			// else if (*s == 'p')
-			// else if (*s == 'd')
-			// else if (*s == 'i')
+			else if (*s == 'd')
+				num_chars += ft_putstr(ft_itoa_base(va_arg(params, int), 10, 0));
+			else if (*s == 'i')
+				num_chars += ft_putstr(ft_itoa_base(va_arg(params, int), 10, 0));
 			// else if (*s == 'u')
-			// else if (*s == 'x')
-			// else if (*s == 'X')
+			else if (*s == 'x')
+				num_chars += ft_putstr(ft_itoa_base(va_arg(params, int), 16, 0));
+			else if (*s == 'X')
+				num_chars += ft_putstr(ft_itoa_base(va_arg(params, int), 16, 1));
 			else if (*s == '%')
 				num_chars += ft_putchar('%');
 		}
@@ -43,6 +49,8 @@ int	ft_printf(const char *s, ...)
 		s++;
 	}
 	va_end(params);
-	// write(0, "\"", 1);
+
+		write(0, "\"", 1);
+		
 	return (num_chars);
 }
