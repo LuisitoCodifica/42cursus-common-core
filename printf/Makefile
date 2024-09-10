@@ -6,7 +6,7 @@
 #    By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/07 15:54:49 by lolit-go          #+#    #+#              #
-#    Updated: 2024/09/09 18:17:22 by lolit-go         ###   ########.fr        #
+#    Updated: 2024/09/10 16:26:14 by lolit-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,11 @@ MAIN = ft_printf.c
 MAIN_OBJ = ${MAIN:.c=.o}
 
 FUNC_SRCS = ft_putchar.c \
-			ft_putstr.c
+			ft_putstr.c \
+			ft_itoa.c \
+			ft_strlen.c \
+			ft_strlcpy.c \
+			ft_strdup.c
 
 FUNC_OBJS = ${FUNC_SRCS:.c=.o}
 
