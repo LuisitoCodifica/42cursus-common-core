@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:53:22 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/09/12 00:13:50 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/09/12 00:47:30 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int	ft_printf(const char *s, ...)
 				num_chars += ft_putstr(ft_itoa_base(va_arg(params, int), 10, 0));
 			else if (*s == 'i')
 				num_chars += ft_putstr(ft_itoa_base(va_arg(params, int), 10, 0));
-			// else if (*s == 'u')
+			else if (*s == 'u')
+				num_chars += ft_putstr(ft_uitoa(va_arg(params, unsigned int)));
 			else if (*s == 'x')
 				num_chars += ft_putstr(ft_itoa_base(va_arg(params, int), 16, 0));
 			else if (*s == 'X')

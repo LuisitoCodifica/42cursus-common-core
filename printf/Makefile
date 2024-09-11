@@ -6,7 +6,7 @@
 #    By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/07 15:54:49 by lolit-go          #+#    #+#              #
-#    Updated: 2024/09/11 23:34:29 by lolit-go         ###   ########.fr        #
+#    Updated: 2024/09/12 00:38:16 by lolit-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ FUNC_SRCS = ft_putchar.c \
 			ft_strlen.c \
 			ft_strlcpy.c \
 			ft_strdup.c \
-			ft_mem_addr.c
+			ft_mem_addr.c \
+			ft_uitoa.c
 
 FUNC_OBJS = ${FUNC_SRCS:.c=.o}
 
