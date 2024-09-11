@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 23:33:34 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/09/12 00:14:38 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/09/12 00:41:30 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ char	*ft_mem_addr(const void *addr)
 	unsigned long	n;
 
 	n = (unsigned long) addr;
+	if (n == 0)
+		return (ft_strdup("0x0"));
 	len = ft_n_len(n);
 	str = (char *) malloc((len + 3) * sizeof(char));
 	if (!str)
