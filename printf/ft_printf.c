@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:53:22 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/09/10 16:43:08 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/09/12 00:13:50 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@ int	ft_printf(const char *s, ...)
 
 	num_chars = 0;
 	va_start(params, s);
-
-		write(0, "\"", 1);
-
 	while (*s)
 	{
 		if (*s == '%')
@@ -31,7 +28,8 @@ int	ft_printf(const char *s, ...)
 				num_chars += ft_putchar(va_arg(params, int));
 			else if (*s == 's')
 				num_chars += ft_putstr(va_arg(params, char *));
-			// else if (*s == 'p')
+			else if (*s == 'p')
+				num_chars += ft_putstr(ft_mem_addr(va_arg(params, void *)));
 			else if (*s == 'd')
 				num_chars += ft_putstr(ft_itoa_base(va_arg(params, int), 10, 0));
 			else if (*s == 'i')
@@ -49,8 +47,5 @@ int	ft_printf(const char *s, ...)
 		s++;
 	}
 	va_end(params);
-
-		write(0, "\"", 1);
-		
 	return (num_chars);
 }
