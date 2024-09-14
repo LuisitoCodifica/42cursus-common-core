@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 00:38:44 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/09/12 00:44:11 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/09/14 19:04:20 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	ft_n_len(int n)
 	return (len);
 }
 
-static int	ft_parse_chr(int n)
+static int	ft_parse_chr(unsigned int n)
 {
 	int	c;
 	int	rem;
