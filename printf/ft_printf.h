@@ -6,14 +6,17 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:52:49 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/09/12 00:37:54 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/09/12 18:52:16 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
-#include <stdlib.h>
-#include <stdio.h>
+#ifndef PRINTF_H
+# define PRINTF_H
+
+# include <unistd.h>
+# include <stdarg.h>
+# include <stdlib.h>
+# include <stdio.h>
 
 int		ft_strlen(const char *s);
 
@@ -32,3 +35,5 @@ char	*ft_uitoa(unsigned int n);
 char	*ft_mem_addr(const void *addr);
 
 int		ft_printf(const char *s, ...);
+
+#endif
