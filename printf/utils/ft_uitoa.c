@@ -6,11 +6,9 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 00:38:44 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/09/14 19:04:20 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/09/16 13:51:23 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../ft_printf.h"
 
 #include "../ft_printf.h"
 
@@ -79,4 +77,3 @@ char	*ft_uitoa(unsigned int n)
 	reverse(str, i);
 	return (str);
 }
-

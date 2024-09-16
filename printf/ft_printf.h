@@ -6,12 +6,12 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:52:49 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/09/12 18:52:16 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/09/16 14:04:04 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <unistd.h>
 # include <stdarg.h>
@@ -33,6 +33,12 @@ char	*ft_itoa_base(int n, int base, int upper);
 char	*ft_uitoa(unsigned int n);
 
 char	*ft_mem_addr(const void *addr);
+
+int		ft_check_spec(const char c, const char *specifiers);
+
+int		ft_validate(const char *s);
+
+int		ft_parse(const char specifier, va_list params);
 
 int		ft_printf(const char *s, ...);
 
