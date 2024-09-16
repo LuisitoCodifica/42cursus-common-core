@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 17:40:00 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/09/09 17:47:24 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/09/16 14:56:03 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int	ft_putstr(const char *s)
 	i = 0;
 	while (s[i])
 		i++;
-	write(0, s, i);
+	write(1, s, i);
 	return (i);
 }
