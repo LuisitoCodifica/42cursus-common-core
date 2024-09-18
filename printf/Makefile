@@ -6,7 +6,7 @@
 #    By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/07 15:54:49 by lolit-go          #+#    #+#              #
-#    Updated: 2024/09/16 14:05:43 by lolit-go         ###   ########.fr        #
+#    Updated: 2024/09/18 18:30:53 by lolit-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,12 @@ MAIN_OBJ = ${MAIN:.c=.o}
 FUNC_SRCS = ft_putchar.c \
 			ft_putstr.c \
 			ft_itoa.c \
+			ft_uitoa.c \
+			ft_itohex.c \
 			ft_strlen.c \
 			ft_strlcpy.c \
 			ft_strdup.c \
 			ft_mem_addr.c \
-			ft_uitoa.c \
 			ft_check_spec.c \
 			ft_validate.c \
 			ft_parse.c

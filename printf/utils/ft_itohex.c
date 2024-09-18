@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itohex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/09 18:41:57 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/09/18 20:32:47 by lolit-go         ###   ########.fr       */
+/*   Created: 2024/09/18 18:28:09 by lolit-go          #+#    #+#             */
+/*   Updated: 2024/09/18 20:57:07 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	ft_reverse(char str[], int length)
 	}
 }
 
-static int	ft_n_len(int n)
+static int	ft_n_len(unsigned int n)
 {
 	int	len;
 
@@ -39,47 +39,48 @@ static int	ft_n_len(int n)
 	len = 0;
 	while (n != 0)
 	{
-		n /= 10;
+		n /= 16;
 		len++;
 	}
 	return (len);
 }
 
-static int	ft_check_neg(int n, int *neg)
+static int	ft_parse_chr(unsigned int n, int upper)
 {
-	if (n < 0)
-	{
-		*neg = 1;
-		return (-n);
-	}
-	*neg = 0;
-	return (n);
+	int	c;
+	int	a;
+	int	rem;
+
+	if (upper)
+		a = 'A';
+	else
+		a = 'a';
+	rem = n % 16;
+	if (rem > 9)
+		c = (rem - 10) + a;
+	else
+		c = rem + '0';
+	return (c);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itohex(unsigned int n, int upper)
 {
 	char	*str;
-	int		neg;
 	int		len;
 	int		i;
 
 	if (n == 0)
 		return (ft_strdup("0"));
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	n = ft_check_neg(n, &neg);
 	len = ft_n_len(n);
-	str = (char *) malloc((len + neg + 1) * sizeof(char));
+	str = (char *) malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	i = 0;
 	while (n != 0)
 	{
-		str[i++] = (n % 10) + '0';
-		n /= 10;
+		str[i++] = ft_parse_chr(n, upper);
+		n /= 16;
 	}
-	if (neg)
-		str[i++] = '-';
 	str[i] = 0;
 	ft_reverse(str, i);
 	return (str);
