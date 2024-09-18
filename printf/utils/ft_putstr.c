@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 17:40:00 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/09/16 14:56:03 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/09/18 12:40:10 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ int	ft_putstr(const char *s)
 {
 	int	i;
 
+	if (!s)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	i = 0;
 	while (s[i])
 		i++;
