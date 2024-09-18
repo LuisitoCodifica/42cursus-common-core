@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 00:38:44 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/09/16 13:51:23 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/09/18 12:27:04 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	reverse(char str[], int length)
 	}
 }
 
-static int	ft_n_len(int n)
+static int	ft_n_len(unsigned int n)
 {
 	int	len;
 
