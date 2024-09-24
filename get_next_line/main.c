@@ -5,6 +5,7 @@ int main(int argc, char **argv) {
 		return 1;
 
 	int fd = open(argv[1], O_RDONLY);
+	char *str;
 	// int i = argv[2][0] - '0';
 
 	// while (i) {
@@ -13,11 +14,14 @@ int main(int argc, char **argv) {
 	// 	i--;
 	// }
 
-	printf("\n---\n\n");
+	// printf("\n---\n\n");
 
-	get_next_line(fd);
-	get_next_line(fd);
+	str = get_next_line(fd);
+	str = get_next_line(fd);
+	str = get_next_line(fd);
+	str = get_next_line(fd);
 
+	free(str);
 	close(fd);
 
 	return 0;
