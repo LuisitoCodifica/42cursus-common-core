@@ -17,9 +17,9 @@ int main(int argc, char **argv) {
 	// printf("\n---\n\n");
 
 	str = get_next_line(fd);
-	str = get_next_line(fd);
-	str = get_next_line(fd);
-	str = get_next_line(fd);
+	// str = get_next_line(fd);
+	// str = get_next_line(fd);
+	// str = get_next_line(fd);
 
 	free(str);
 	close(fd);
