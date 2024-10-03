@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 15:22:52 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/10/01 17:14:38 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/10/03 18:18:18 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ size_t	ft_get_len(const char *s)
 {
 	size_t	len;
 
+	if (s == NULL)
+		return (0);
 	len = 0;
-	if (!s)
-		return (len);
 	while (s[len])
 	{
 		// printf("%c\n", s[len]);

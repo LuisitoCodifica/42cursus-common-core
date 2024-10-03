@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 15:04:05 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/10/01 20:09:25 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/10/03 18:20:04 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,13 @@ char	*get_next_line(int fd)
 	ssize_t		bytes_read;
 	size_t		i;
 
+	size_t		iter = 0;
+
+	line = NULL;
 	while (1)
 	{
+		printf("iter %d\n-----\n", iter++);
+		
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
 			return (NULL);
@@ -41,7 +46,7 @@ char	*get_next_line(int fd)
 			return (NULL);
 
 		i = 0;
-		printf("\"%ld\"\n", ft_strlen(line));
+		// printf("\"%ld\"\n", ft_strlen(line));
 		while (buffer[i])
 		{
 			if (buffer[i] == '\n')
