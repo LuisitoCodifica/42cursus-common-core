@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 15:04:05 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/10/01 19:07:27 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/10/01 20:09:25 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,16 @@ char	*get_next_line(int fd)
 			{
 				line[i] = '\0';
 				printf("\n\"%s\"\n\n", line);
+				printf("\n\"%s\"\n\n", (buffer + i + 1));
 				return (line);
 			}
-			printf("%c -- ", buffer[i]);
+			// printf("%c -- ", buffer[i]);
 			// ft_strlcat(line, &buffer[i], 1);
 			line[i] = buffer[i];
-			printf("%c\n", line[i]);
+			// printf("%c\n", line[i]);
 			i++;
 		}
 	}
 	
-	// return (line);
+	return (NULL);
 }
