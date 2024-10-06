@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 15:22:52 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/10/03 18:18:18 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/10/06 18:14:50 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,7 @@ void	*ft_realloc(void *ptr, size_t size, size_t new_size)
 		return (NULL);
 	}
 	if (!ptr)
-	{
-		printf("-- HOLA --\n");
 		return malloc(new_size);
-	}
 	new_ptr = malloc(new_size);
 	if (!new_ptr)
 		return (NULL);
