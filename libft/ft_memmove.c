@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 16:28:21 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/05/07 02:41:48 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/10/24 01:40:38 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 void	*ft_memmove(void *dst, const void *src, int n)
 {
-	unsigned char	*dst_ptr;
-	unsigned char	*src_ptr;
-	int				i;
+	int	i;
 
-	dst_ptr = (unsigned char *) dst;
-	src_ptr = (unsigned char *) src;
-	if (!dst_ptr && !src_ptr)
-		return (0);
-	if (!n || *dst_ptr == *src_ptr)
+	if (!dst && !src)
 		return (dst);
-	i = 0;
-	if (*dst_ptr < *src_ptr)
+	if (src < dst)
 	{
-		while (i < n)
+		i = n;
+		while (i > 0)
 		{
-			dst_ptr[i] = src_ptr[i];
-			i++;
+			i--;
+			((unsigned char *) dst)[i] = ((unsigned char *) src)[i];
 		}
 	}
 	else
-		while (n--)
-			dst_ptr[n] = src_ptr[n];
+	{
+		i = 0;
+		while (i < n)
+		{
+			((unsigned char *) dst)[i] = ((unsigned char *) src)[i];
+			i++;
+		}
+	}
 	return (dst);
 }
