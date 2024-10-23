@@ -11,3 +11,14 @@ bash -c "[[ ! -e libft.zip && ! -d libft ]] \
     && rm libft.zip"
 ```
 
+## printf
+
+Run the following command to download `printf` only:
+
+```bash
+bash -c "[[ ! -e printf.zip && ! -d printf ]] \
+    && wget -q https://github.com/LuisitoCodifica/42cursus-common-core/releases/download/Projects/printf.zip \
+    && unzip printf.zip \
+    && rm printf.zip"
+```
+
