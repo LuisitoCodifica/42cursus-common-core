@@ -6,12 +6,17 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 15:02:42 by lolit-go          #+#    #+#             */
-/*   Updated: 2024/09/25 19:50:54 by lolit-go         ###   ########.fr       */
+/*   Updated: 2024/10/10 04:09:02 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+
+# define RESET "\e[0m"
+# define RED "\e[0;31m"
+# define GREEN "\e[0;32m"
+# define BLUE "\e[0;34m"
 
 # include <string.h>
 # include <stdio.h>
