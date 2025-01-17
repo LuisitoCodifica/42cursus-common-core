@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:22:57 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/01/11 21:02:12 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/01/17 22:57:40 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,17 @@
 #  define BUFFER_SIZE 42
 # endif
 
-int		ft_strlen(const char *s);
-
-void	*ft_memchr(void *s, int c, int n);
-
-void	*ft_memmove(void *dst, const void *src, int n);
-
-void	*ft_memcpy(void *dst, const void *src, int n);
-
-void	*ft_memset(void *s, int c, int n);
-
 char	*get_next_line(int fd);
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
+
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+void	ft_lstclear(t_list **lst, void (*del)(void *));
 
 #endif
