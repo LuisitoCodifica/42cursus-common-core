@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:22:57 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/01/17 22:57:40 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:50:38 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # define RED "\e[0;31m"
 # define GREEN "\e[0;32m"
 # define BLUE "\e[0;34m"
+
+# define R_SUCCESS 0
+# define R_FAILURE 1
 
 # include <string.h>
 # include <stdio.h>

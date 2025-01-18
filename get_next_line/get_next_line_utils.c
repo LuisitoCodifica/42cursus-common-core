@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:22:37 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/01/17 22:57:07 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/01/18 19:11:59 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
 
-	last = ft_lstlast(*lst);
+	last = *lst;
+	while (last)
+	{
+		if (last->next == NULL)
+			break ;
+		last = last->next;
+	}
 	if (!last)
 		*lst = new;
 	else
