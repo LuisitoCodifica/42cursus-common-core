@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:22:47 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/01/21 18:17:14 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/01/21 18:33:49 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,10 @@ char	*get_next_line(int fd)
 			return (NULL);
 		nl = _buf_check_nl(&lst);
 	}
+
+	// Hacer join de las listas
+
+	// Iterar delone y guardar el sobrante
 
 	printf(BLUE "list size: %d\n\n" RESET, ft_lstsize(lst));
 
