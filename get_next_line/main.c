@@ -7,8 +7,9 @@ int main(int argc, char **argv) {
 	char *str;
 	
 	str = get_next_line(fd);
+	str = get_next_line(fd);
 
-	// printf(GREEN "\"\"\"%s\"\"\"\n" RESET, str);
+	// printf(GREEN "'''%s'''\n" RESET, str);
 
 	return (0);
 }

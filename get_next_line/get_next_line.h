@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:22:57 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/01/18 18:50:38 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/01/21 18:17:25 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 15
 # endif
 
 char	*get_next_line(int fd);
