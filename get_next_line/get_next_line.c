@@ -6,13 +6,35 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:22:47 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/01/29 16:12:18 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/01/29 19:01:28 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-// static int	_buf_free(){}
+// static int	_buf_free(t_list **lst)
+// {
+// 	t_list	*next;
+// 	t_list	*aux;
+// 	size_t	len;
+
+// 	next = *lst;
+// 	while (next)
+// 	{
+// 		free(next->content);
+// 		aux = next->next;
+// 		free(next);
+// 		next = aux;
+// 	}
+// 	len = ft_strlen(next->content);
+// 	if (len < ft_strlen(next->content + len))
+// 		return (R_FAILURE);
+// 	else
+// 	{
+// 		*lst = NULL;
+// 		return (R_SUCCESS);
+// 	}
+// }
 
 static int	_buf_check_nl(t_list **lst)
 {
@@ -98,7 +120,6 @@ char	*get_next_line(int fd)
 	t_list			*current;
 	char			*line;// = "hola";
 	int				nl;
-
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	nl = 1;
@@ -120,7 +141,7 @@ char	*get_next_line(int fd)
 	line = (char *) malloc((nl + 1) * sizeof(char));
 	if (!line)
 		return (NULL);
-	printf("line malloc: %ld\n", (nl + 1) * sizeof(char));
+	// printf("line malloc: %ld\n", (nl + 1) * sizeof(char));
 	nl = 0;
 	current = lst;
 	while (current)
@@ -133,9 +154,20 @@ char	*get_next_line(int fd)
 	line[nl + 1] = 0;
 
 	// Iterar delone y guardar el sobrante
+	// if (_buf_free(&lst) && lst && lst->content)
+	// {
+	// 	char *content = (char *) lst->content;
+		
+	// 	int len = ft_strlen(content);
+	// 	int n_len = ft_strlen(content + len + 1);
+	// 	ft_memmove(content, content + len + 1, n_len);
+	// 	content[n_len] = '\0';
+	// }
 
-	printf(GREEN "%s\n" RESET, line);
-	printf(BLUE "list size: %d\n\n" RESET, ft_lstsize(lst));
+
+
+	// printf(GREEN "%s\n" RESET, line);
+	// printf(BLUE "list size: %d\n\n" RESET, ft_lstsize(lst));
 
 	return (line);
 }
