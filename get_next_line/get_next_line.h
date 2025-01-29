@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:22:57 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/01/21 18:17:25 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/01/29 15:21:04 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,13 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 15
+#  define BUFFER_SIZE 42
 # endif
 
 char	*get_next_line(int fd);
+
+int		ft_strlen(const char *s);
+void	*ft_memmove(void *dst, const void *src, int n);
 
 typedef struct s_list
 {
@@ -42,7 +45,8 @@ typedef struct s_list
 
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *lst);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
+// vvv QUITAR vvv
+int		ft_lstsize(t_list *lst);
 
 #endif

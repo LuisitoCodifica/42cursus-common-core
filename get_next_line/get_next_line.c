@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:22:47 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/01/21 18:33:49 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:12:18 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	_buf_check_nl(t_list **lst)
 	i = 0;
 	while (((char *) last->content)[i])
 	{
-		printf("%c", ((char *) last->content)[i]);
+		// printf("%c", ((char *) last->content)[i]);
 		if (((char *) last->content)[i] == '\n')
 			return (R_SUCCESS);
 		i++;
@@ -95,7 +95,8 @@ static int	_buf_read(t_list **lst, int fd)
 char	*get_next_line(int fd)
 {
 	static t_list	*lst;
-	char			*line = "hola";
+	t_list			*current;
+	char			*line;// = "hola";
 	int				nl;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
@@ -109,9 +110,31 @@ char	*get_next_line(int fd)
 	}
 
 	// Hacer join de las listas
+	nl = 0;
+	current = lst;
+	while (current)
+	{
+		nl += ft_strlen((char *) current->content);
+		current = current->next;
+	}
+	line = (char *) malloc((nl + 1) * sizeof(char));
+	if (!line)
+		return (NULL);
+	printf("line malloc: %ld\n", (nl + 1) * sizeof(char));
+	nl = 0;
+	current = lst;
+	while (current)
+	{
+		ft_memmove((line + nl), (char *) current->content, ft_strlen((char *) current->content));
+		// printf(RED "'''%s'''\n" RESET, line);
+		nl += ft_strlen((char *) current->content);
+		current = current->next;
+	}
+	line[nl + 1] = 0;
 
 	// Iterar delone y guardar el sobrante
 
+	printf(GREEN "%s\n" RESET, line);
 	printf(BLUE "list size: %d\n\n" RESET, ft_lstsize(lst));
 
 	return (line);
