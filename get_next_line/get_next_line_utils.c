@@ -6,13 +6,13 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:25:03 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/02/12 18:34:06 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:51:58 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-t_line	*ft_line_new(void *content)
+t_line	*ft_line_new(char *content)
 {
 	t_line	*line;
 	ssize_t	length;
