@@ -22,14 +22,7 @@ static char	*_buf_join(t_line **line)
 	first = *line;
 	// printf(RED "\n%p\n" RESET, *line); //<--
 
-	printf("\nline content: " RED "'''%s'''" RESET, (*line)->content); //<--
-	printf("\nline length: %ld\nnewline index: %ld\n", (*line)->length, (*line)->newline_index); //<--
-	if ((*line)->newline_index == -1)
-		len += (*line)->length;
-	else
-		len += (*line)->newline_index;
-	(*line) = (*line)->next;
-	while (*line != first)
+	while (*line)
 	{
 		printf("\nline content: " RED "'''%s'''" RESET, (*line)->content); //<--
 		printf("\nline length: %ld\nnewline index: %ld\n", (*line)->length, (*line)->newline_index); //<--
@@ -40,7 +33,18 @@ static char	*_buf_join(t_line **line)
 		(*line) = (*line)->next;
 	}
 
-	printf("\nresult length: " BLUE "%ld\n" RESET, len); //<--
+	printf("\nresult length: " BLUE "%ld\n\n" RESET, len); //<--
+
+	result = (char *) malloc((len + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
+
+	*line = first;
+	while (*line)
+	{
+		
+		*line = (*line)->next;
+	}
 
 	// return (result);
 	return (NULL);
@@ -78,10 +82,12 @@ char	*get_next_line(int fd)
 		found_nl = _buf_read(&line, fd);
 		if (found_nl == 1)
 			return (_buf_free(&line), NULL);
+		// printf(RED "%p\n" RESET, line);
 	}
 	
+	printf("\n");
 	printf("\nlist size: " RED "%d\n" RESET, ft_lstsize(line)); //<--
 	
-	return (NULL);
-	// return (_buf_join(&line));
+	// return (NULL);
+	return (_buf_join(&line));
 }

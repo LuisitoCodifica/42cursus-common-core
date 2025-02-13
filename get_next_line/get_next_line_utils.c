@@ -36,7 +36,7 @@ t_line	*ft_line_new(char *content)
 		}
 		length++;
 	}
-	line->next = line;
+	line->next = NULL;
 	return (line);
 }
 
@@ -44,19 +44,26 @@ void	ft_line_addnode(t_line **line, t_line *new)
 {
 	t_line	*last;
 
-	if (!line || !new)
-		return ;
-	if (!(*line))
-	{
-		*line = new;
-		new->next = new;
-		return ;
-	}
+	// if (!line || !new)
+	// 	return ;
+	// if (!(*line))
+	// {
+	// 	*line = new;
+	// 	new->next = new;
+	// 	return ;
+	// }
 	last = *line;
-	while (last->next != *line)
+	while (last)
+	{
+		if (last->next == NULL)
+			break ;
 		last = last->next;
-	last->next = new;
-	new->next = *line;
+	}
+	if (!last)
+		*line = new;
+	else
+		last->next = new;
+	// new->next = *line;
 }
 
 void	ft_line_delnode(t_line **line)
@@ -117,15 +124,14 @@ int	ft_lstsize(t_line *lst)
 {
 	int offset = 0xFFFF;
 	int	i = 0;
-	t_line *first = lst;
-	do {
+	while (lst) {
 		unsigned long node_addr = (unsigned long long) lst & offset;
-		printf(BLUE "%lx -> ", node_addr);
+		printf(BLUE "%.4lx -> ", node_addr);
 		unsigned long next_addr = (unsigned long long) lst->next & offset;
-		printf("%lx   " RESET, next_addr);
+		printf("%.4lx   " RESET, next_addr);
 		printf("'''%s'''\n" RESET, lst->content);
 		lst = lst->next;
 		i++;
-	} while (lst != first);
+	}
 	return (i);
 }
