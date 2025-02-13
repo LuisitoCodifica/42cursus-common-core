@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:13:46 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/02/12 18:52:19 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:50:39 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 
 char	*get_next_line(int fd);
 
+ssize_t	ft_strlcpy(char *dst, const char *src, ssize_t size);
 char	*ft_strdup(const char *s);
 
 typedef struct s_line_node

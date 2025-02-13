@@ -5,9 +5,12 @@ int main(int argc, char **argv) {
 		exit(1);
 	int fd = open(argv[1], O_RDONLY);
 
-	get_next_line(fd);
-	// get_next_line(fd);
-	// get_next_line(fd);
+	char *str = get_next_line(fd);
+	while (str)
+	{
+		printf("%s", str);
+		str = get_next_line(fd);
+	}
 
 	close(fd);
 

@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:25:03 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/02/12 18:51:58 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:50:13 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,28 @@ void	ft_line_delnode(t_line **line)
 	*line = temp->next; // Mueve el puntero de la lista al siguiente nodo
 
 	free(temp);
+}
+
+ssize_t	ft_strlcpy(char *dst, const char *src, ssize_t size)
+{
+	ssize_t	src_len;
+	ssize_t	len;
+
+	src_len = 0;
+	while (src[src_len])
+		src_len++;
+	if (size == 0)
+		return (src_len);
+	if (size < 0)
+		size = src_len + 1 + ((size + 1) % size);
+	len = 0;
+	while (src[len] && (len < size - 1))
+	{
+		dst[len] = src[len];
+		len++;
+	}
+	dst[len] = '\0';
+	return (src_len);
 }
 
 char	*ft_strdup(const char *s)
