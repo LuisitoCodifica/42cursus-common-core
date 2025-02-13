@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:25:03 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/02/13 17:50:13 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/02/13 19:13:44 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,15 +118,19 @@ ssize_t	ft_strlcpy(char *dst, const char *src, ssize_t size)
 	return (src_len);
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *s, ssize_t len)
 {
 	char	*str;
-	size_t	len;
 	size_t	i;
 
-	len = 0;
-	while (s[len])
-		len++;
+	if (len == 0)
+		return (NULL);
+	if (len == -1)
+	{
+		len = 0;
+		while (s[len])
+			len++;
+	}
 	str = (char *) malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);

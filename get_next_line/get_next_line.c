@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:26:09 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/02/13 18:32:27 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/02/13 19:27:23 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static char	*_buf_join(t_line **line)
 		else
 		{
 			ft_strlcpy((result + i), (*line)->content, (*line)->newline_index + 2);
-			ft_line_addnode(&(*line), ft_line_new(ft_strdup((*line)->content + (*line)->newline_index)+ 1));
+			ft_line_addnode(&(*line), ft_line_new(ft_strdup((*line)->content + (*line)->newline_index + 1, -1)));
 			*line = (*line)->next;
 			break ;
 		}
@@ -82,7 +82,7 @@ static int	_buf_read(t_line **line, int fd)
 	if (read_bytes <= 0)
 		return (R_FAILURE);
 	buffer[read_bytes] = 0;
-	new_node = ft_line_new(ft_strdup(buffer));
+	new_node = ft_line_new(ft_strdup(buffer, -1));
 	ft_line_addnode(&(*line), new_node);
 	if (new_node->newline_index == -1)
 		return (-1);
@@ -93,9 +93,21 @@ char	*get_next_line(int fd)
 {
 	static t_line	*line;
 	ssize_t			found_nl;
+	char			*str;
 
 	if (fd < 0 || BUFFER_SIZE <= 0) // - [ ] Checkear caso fd sin permiso de lectura
 		return (_buf_free(&line), NULL);
+	if (line && line->newline_index != -1)
+	{
+		// printf(RED ">>> pling! <<<\n" RESET);
+		// printf("%s\n", line->content);
+		// printf("%ld\n", line->newline_index);
+		ft_line_addnode(&line, ft_line_new(ft_strdup((line->content + line->newline_index + 1), -1)));
+		str = ft_strdup(line->content, line->newline_index + 1);
+		// delnode
+		line = line->next;
+		return (str);
+	}
 	found_nl = -1;
 	while (found_nl == -1)
 	{
