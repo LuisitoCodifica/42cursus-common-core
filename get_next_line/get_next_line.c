@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:26:09 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/02/17 17:21:03 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:26:10 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,18 @@ static char	*_buf_join(t_line **line)
 	// return (NULL);
 }
 
-static void	_buf_free(){}
+static void	_buf_free(t_line **line)
+{
+	int	flag;
+
+	flag = 1;
+	while (flag)
+	{
+		if ((*line)->next == NULL)
+			flag = 0;
+		ft_line_delnode(&(*line));
+	}
+}
 
 static int	_buf_read(t_line **line, int fd)
 {
