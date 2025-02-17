@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:13:46 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/02/13 19:14:15 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:37:13 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_line_node
 
 t_line	*ft_line_new(char *content);
 void	ft_line_addnode(t_line **lst, t_line *new);
+void	ft_line_delnode(t_line **line);
 
 /* temp */
 

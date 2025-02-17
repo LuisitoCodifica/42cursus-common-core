@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:25:03 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/02/13 19:13:44 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:20:14 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,33 +68,27 @@ void	ft_line_addnode(t_line **line, t_line *new)
 
 void	ft_line_delnode(t_line **line)
 {
-	t_line	*temp;
-	t_line	*prev;
+	t_line	*current;
 
-	if (!line || !(*line)) // Verifica si la lista está vacía
+	if (!line || !(*line))
 		return ;
-
-	temp = *line;
-
-	// Si solo hay un nodo en la lista
-	if (temp->next == temp)
+	if ((*line)->next == NULL)
 	{
-		free(temp);
-		*line = NULL;
+		free((*line)->content);
+		free((*line));
 		return ;
 	}
-
-	// Encuentra el nodo anterior al nodo que se va a eliminar
-	prev = temp;
-	while (prev->next != *line)
-		prev = prev->next;
-
-	// Ajusta el puntero del nodo anterior para omitir el nodo actual
-	prev->next = temp->next;
-	*line = temp->next; // Mueve el puntero de la lista al siguiente nodo
-
-	free(temp);
+	current = *line;
+	// printf("DELETED NODE: " RED "'''%s'''\n" RESET, current->content);
+	free(current->content);
+	*line = current->next;
+	free(current);
+	// printf("CURRENT NODE: " BLUE "'''%s'''\n" RESET, (*line)->content);
+	// printf("CURRENT NODE LENGTH: " BLUE "'''%ld'''\n" RESET, (*line)->length);
+	// printf("CURRENT NODE NEWLINE: " BLUE "'''%ld'''\n" RESET, (*line)->newline_index);
+	// printf("CURRENT NODE NEXT: " BLUE "'''%p'''\n" RESET, (*line)->next);
 }
+
 
 ssize_t	ft_strlcpy(char *dst, const char *src, ssize_t size)
 {

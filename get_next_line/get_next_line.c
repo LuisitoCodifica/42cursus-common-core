@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:26:09 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/02/13 19:27:23 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:21:03 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static ssize_t	_calc_result_len(t_line *line)
 {
-	t_line		*first;
+	t_line	*first;
 	ssize_t	len;
 
 	len = 0;
@@ -104,8 +104,7 @@ char	*get_next_line(int fd)
 		// printf("%ld\n", line->newline_index);
 		ft_line_addnode(&line, ft_line_new(ft_strdup((line->content + line->newline_index + 1), -1)));
 		str = ft_strdup(line->content, line->newline_index + 1);
-		// delnode
-		line = line->next;
+		ft_line_delnode(&line);
 		return (str);
 	}
 	found_nl = -1;
@@ -114,7 +113,6 @@ char	*get_next_line(int fd)
 		found_nl = _buf_read(&line, fd);
 		if (found_nl == 1)
 			return (_buf_free(&line), NULL);
-		// printf(RED "%p\n" RESET, line);
 	}
 	
 	// printf("\n");
