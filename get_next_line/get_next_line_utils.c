@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:25:03 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/02/17 17:20:14 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/02/19 19:45:08 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void	ft_line_delnode(t_line **line)
 	// printf("CURRENT NODE NEXT: " BLUE "'''%p'''\n" RESET, (*line)->next);
 }
 
-
 ssize_t	ft_strlcpy(char *dst, const char *src, ssize_t size)
 {
 	ssize_t	src_len;
@@ -98,6 +97,7 @@ ssize_t	ft_strlcpy(char *dst, const char *src, ssize_t size)
 	src_len = 0;
 	while (src[src_len])
 		src_len++;
+	// printf(RED "src length: %ld\n" RESET, src_len);
 	if (size == 0)
 		return (src_len);
 	if (size < 0)
@@ -115,7 +115,7 @@ ssize_t	ft_strlcpy(char *dst, const char *src, ssize_t size)
 char	*ft_strdup(const char *s, ssize_t len)
 {
 	char	*str;
-	size_t	i;
+	ssize_t	i;
 
 	if (len == 0)
 		return (NULL);
