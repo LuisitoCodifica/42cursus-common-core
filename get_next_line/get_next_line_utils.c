@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:25:03 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/02/19 19:45:08 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/02/22 22:07:57 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_line	*ft_line_new(char *content)
 	length = 0;
 	while (line->content[length])
 	{
-		if (line->content[length] == '\n')
+		if (line->content[length] == '\n' || line->content[length] == 0)
 		{
 			line->newline_index = length;
 			break ;
