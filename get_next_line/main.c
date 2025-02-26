@@ -9,6 +9,16 @@ int main(int argc, char **argv) {
 	printf("'''" GREEN "%s" RESET "'''\n", str);
 	str = get_next_line(fd);
 	printf("'''" GREEN "%s" RESET "'''\n", str);
+	str = get_next_line(fd);
+	printf("'''" GREEN "%s" RESET "'''\n", str);
+	str = get_next_line(fd);
+	printf("'''" GREEN "%s" RESET "'''\n", str);
+	str = get_next_line(fd);
+	printf("'''" GREEN "%s" RESET "'''\n", str);
+	str = get_next_line(fd);
+	printf("'''" GREEN "%s" RESET "'''\n", str);
+	str = get_next_line(fd);
+	printf("'''" GREEN "%s" RESET "'''\n", str);
 
 	// while (str)
 	// {

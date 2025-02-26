@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:26:09 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/02/22 22:42:35 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/02/26 06:08:55 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ static int	_buf_read(t_line **line, int fd)
 	new_node = ft_line_new(ft_strdup(buffer, -1));
 	if (read_bytes == 0)
 		new_node->newline_index = new_node->length;
+	// printf("content: " BLUE "''%s''" RESET " -> %ld\n", new_node->content, new_node->length);
 	ft_line_addnode(&(*line), new_node);
 	if (new_node->newline_index == -1)
 		return (-1);
@@ -65,28 +66,36 @@ static int	_buf_read(t_line **line, int fd)
 static char	*_buf_join(t_line **line, ssize_t line_len)
 {
 	char	*str;
-	ssize_t	bytes;
-	ssize_t	limit;
+	ssize_t	i;
+	ssize_t	j;
 
+	if ((*line)->length == 0) {
+		// printf(RED "heyyy!" RESET);
+		// return (_buf_free(&(*line)), NULL);
+		return (_buf_free(&(*line)), NULL);
+	}
 	str = (char *) malloc((line_len + 1) * sizeof(char));
 	if (!str)
 		return (_buf_free(&(*line)), NULL);
-	limit = _get_line_length(*line) - 2;
-	bytes = 0;
-	while (bytes <= limit)
+	i = 0;
+	// while ((*line)->next != NULL)
+	while (*line)
 	{
-		if ((*line)->newline_index == -1)
-			bytes += ft_strlcpy((str + bytes),
-					(*line)->content, (*line)->length + 1);
-		else
+		j = 0;
+		while (j < (*line)->length)
 		{
-			bytes += ft_strlcpy((str + bytes),
-					(*line)->content, (*line)->newline_index + 2);
-			ft_line_addnode(&(*line), ft_line_new(ft_strdup(((*line)->content + (*line)->newline_index + 1), -1)));
+			str[i] = (*line)->content[j];
+			// printf("%.2ld: %c\n", i, str[i]);
+			j++;
+			i++;
 		}
 		ft_line_delnode(&(*line));
+		// if ((*line)->next == NULL)
+		// 	break;
 	}
-	str[bytes + 1] = 0;
+	// printf(RED "''%p''\n" RESET, (*line));
+	// ft_line_delnode(&(*line));
+	str[i] = 0;
 	return (str);
 }
 
@@ -100,6 +109,7 @@ char	*get_next_line(int fd)
 		return (_buf_free(&line), NULL);
 	if (line && line->newline_index != -1)
 	{
+		// printf(RED "aaa " RESET);
 		str = ft_strdup((line->content + line->newline_index + 1), -1);
 		ft_line_addnode(&line, ft_line_new(str));
 		str = ft_strdup(line->content, line->newline_index + 1);
@@ -113,6 +123,7 @@ char	*get_next_line(int fd)
 		if (found_nl == 1)
 			return (_buf_free(&line), NULL);
 	}
+	printf("list size: %d\n",ft_lstsize(line));
 	str = _buf_join(&line, _get_line_length(line));
 	return (str);
 }

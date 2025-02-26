@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:25:03 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/02/22 22:07:57 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/02/26 06:05:17 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,10 @@ void	ft_line_delnode(t_line **line)
 		return ;
 	if ((*line)->next == NULL)
 	{
+		// printf(RED "EEE!!!" RESET);
 		free((*line)->content);
 		free((*line));
+		*line = NULL;
 		return ;
 	}
 	current = *line;
