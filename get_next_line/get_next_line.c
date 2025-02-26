@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:26:09 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/02/26 06:08:55 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/02/26 06:35:03 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ static char	*_buf_join(t_line **line, ssize_t line_len)
 	ssize_t	i;
 	ssize_t	j;
 
+	printf("length: %ld\n", line_len);
 	if ((*line)->length == 0) {
 		// printf(RED "heyyy!" RESET);
 		// return (_buf_free(&(*line)), NULL);
@@ -85,7 +86,7 @@ static char	*_buf_join(t_line **line, ssize_t line_len)
 		while (j < (*line)->length)
 		{
 			str[i] = (*line)->content[j];
-			// printf("%.2ld: %c\n", i, str[i]);
+			printf("%.2ld -- %ld: %c\n", i, j, str[i]);
 			j++;
 			i++;
 		}
@@ -93,7 +94,7 @@ static char	*_buf_join(t_line **line, ssize_t line_len)
 		// if ((*line)->next == NULL)
 		// 	break;
 	}
-	// printf(RED "''%p''\n" RESET, (*line));
+	// printf("i: %ld\n", i);
 	// ft_line_delnode(&(*line));
 	str[i] = 0;
 	return (str);
@@ -123,7 +124,7 @@ char	*get_next_line(int fd)
 		if (found_nl == 1)
 			return (_buf_free(&line), NULL);
 	}
-	printf("list size: %d\n",ft_lstsize(line));
+	// printf("list size: %d\n",ft_lstsize(line));
 	str = _buf_join(&line, _get_line_length(line));
 	return (str);
 }
