@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:26:09 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/02/26 06:35:03 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/03/04 16:42:10 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static ssize_t	_get_line_length(t_line *line)
 		if (line->newline_index == -1)
 			length += line->length;
 		else
-			length += line->newline_index + 1;
+			length += line->newline_index;
 		line = line->next;
 	}
 	return (length);
@@ -69,34 +69,42 @@ static char	*_buf_join(t_line **line, ssize_t line_len)
 	ssize_t	i;
 	ssize_t	j;
 
-	printf("length: %ld\n", line_len);
+	// printf(BLUE "length: %ld\n" RESET, line_len);
 	if ((*line)->length == 0) {
 		// printf(RED "heyyy!" RESET);
 		// return (_buf_free(&(*line)), NULL);
 		return (_buf_free(&(*line)), NULL);
 	}
-	str = (char *) malloc((line_len + 1) * sizeof(char));
+	str = (char *) malloc((line_len + 2) * sizeof(char));
 	if (!str)
 		return (_buf_free(&(*line)), NULL);
+	j = 0;
 	i = 0;
 	// while ((*line)->next != NULL)
-	while (*line)
+	while (i < line_len)
 	{
-		j = 0;
-		while (j < (*line)->length)
+		// printf("%.2ld -- ", i);
+		str[i] = (*line)->content[j];
+		// printf("%ld: %c\n", j, str[i]);
+		i++;
+		j++;
+		if (j >= (*line)->length)
 		{
-			str[i] = (*line)->content[j];
-			printf("%.2ld -- %ld: %c\n", i, j, str[i]);
-			j++;
-			i++;
+			// printf("length: " BLUE "%ld\n" RESET, (*line)->length);
+			// printf("newline: " BLUE "%ld\n" RESET, (*line)->newline_index);
+			j = 0;
+			ft_line_delnode(&(*line));
 		}
-		ft_line_delnode(&(*line));
-		// if ((*line)->next == NULL)
-		// 	break;
 	}
-	// printf("i: %ld\n", i);
-	// ft_line_delnode(&(*line));
+	str[i++] = '\n';
 	str[i] = 0;
+	if ((*line)->newline_index != -1 && (*line)->length > (*line)->newline_index)
+		ft_line_addnode(&(*line),
+			ft_line_new(ft_strdup((*line)->content + (*line)->newline_index + 1, -1)));
+	// ft_line_addnode(&(*line),
+	// 	ft_line_new(ft_strdup((*line)->content + (*line)->newline_index + 1, -1)));
+	// printf("i: %ld\n", i);
+	ft_line_delnode(&(*line));
 	return (str);
 }
 
