@@ -6,7 +6,7 @@
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:26:09 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/03/04 16:42:10 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/03/04 16:51:03 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,9 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (_buf_free(&line), NULL);
+	if (line)
+		ft_lstsize(line);
+	printf("\n   ---\n\n");
 	if (line && line->newline_index != -1)
 	{
 		// printf(RED "aaa " RESET);
@@ -132,6 +135,8 @@ char	*get_next_line(int fd)
 		if (found_nl == 1)
 			return (_buf_free(&line), NULL);
 	}
+	if (line)
+		ft_lstsize(line);
 	// printf("list size: %d\n",ft_lstsize(line));
 	str = _buf_join(&line, _get_line_length(line));
 	return (str);

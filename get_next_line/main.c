@@ -22,7 +22,7 @@ int main() {
 
 	while (str)
 	{
-		printf("%s", str);
+		printf(GREEN "%s" RESET, str);
 		str = get_next_line(fd);
 	}
 
