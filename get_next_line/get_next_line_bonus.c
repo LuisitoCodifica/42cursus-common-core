@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolit-go <lolit-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:44:40 by lolit-go          #+#    #+#             */
-/*   Updated: 2025/03/21 19:33:35 by lolit-go         ###   ########.fr       */
+/*   Updated: 2025/03/21 20:14:53 by lolit-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static int
 	_line_push(char **line, size_t i)
@@ -112,19 +112,19 @@ static ssize_t
 char
 	*get_next_line(int fd)
 {
-	static char	*line;
+	static char	*line[1024];
 	ssize_t		nl_index;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	nl_index = NEWLINE_NOT_FOUND;
-	if (line && ft_strchr(line, '\n'))
-		return (_line_slice(&line, nl_index));
+	if (line[fd] && ft_strchr(line[fd], '\n'))
+		return (_line_slice(&line[fd], nl_index));
 	while (nl_index == NEWLINE_NOT_FOUND)
 	{
-		nl_index = _buf_read(&line, fd);
+		nl_index = _buf_read(&line[fd], fd);
 		if (nl_index == R_FAILED)
-			return (_line_free(&line), NULL);
+			return (_line_free(&line[fd]), NULL);
 	}
-	return (_line_slice(&line, nl_index));
+	return (_line_slice(&line[fd], nl_index));
 }
